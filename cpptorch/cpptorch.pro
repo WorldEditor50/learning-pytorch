@@ -5,6 +5,7 @@ CONFIG -= qt
 
 HEADERS += \
     mlp.h \
+    net_op.h \
     tensor_op.h
 SOURCES += \
         main.cpp
@@ -60,5 +61,6 @@ LIBS += -L$$TORCHPATH/lib   -lasmjit \
                             -ltorch_python \
                             -lgmock_main \
                             -ltorch \
-                            -lXNNPACK
+                            -lXNNPACK \
+                            -lpthread
 

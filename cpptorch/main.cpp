@@ -3,6 +3,7 @@
 #include <memory>
 #include <vector>
 #include "tensor_op.h"
+#include "net_op.h"
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
     //test::transformation();
     //test::slice();
     //test::accumulate();
-    test::op();
+    //test::op();
+    Net::test();
     return 0;
 }
