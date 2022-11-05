@@ -63,6 +63,7 @@ class ResNet18(nn.Module):
             nn.Conv2d(3, 64, kernel_size=3, stride=3, padding=0),
             nn.BatchNorm2d(64)
         )
+        # [batch, channel, height, width]
         # [b, 64, h, w] => [b, 128, h, w]
         self.resblock1 = ResBlock(64, 128)
         # [b, 128, h, w] => [b, 256, h, w]
