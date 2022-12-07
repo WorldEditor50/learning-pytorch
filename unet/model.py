@@ -2,45 +2,6 @@ import torch
 import torch.nn as nn
 import torchvision.transforms.functional as TF
 
-
-"""
-              channels
-    1    64   64                                                                        128  64   64   2
-    |    |    |                                                                         |    |    |    |
-    |    |    |                                                                         |    |    |    |
-    | -> | -> |                                   =>  copy and crop                     | -> | -> | -> |
-    |conv|    |                                                                         |    |    |    |
-    |    |    |                                                                         |    |    |    |
-
-              |  down sample (encoder)                                                  ^  up sample (decoder)
-              V                                                                         |
-                   128  128                                                       128
-              |    |    |                                                     |    |    |
-              | -> | -> |                         =>                          | -> | -> |
-              |    |    |                                                     |    |    |
-              |    |    |                                                     |    |    |
-
-                        |                                                     ^
-                        V                                                     |
-                             256  256                                    256
-                        |    |    |                                 |    |    |
-                        | -> | -> |               =>                | -> | -> | 
-                        |    |    |                                 |    |    |
-
-                                  |                                 ^
-                                  V                                 |
-                                       512 512                512
-                                  | -> | -> |     =>      | -> | -> |
-                                  |    |    |             |    |    |
-
-                                            |             ^
-                                            V             |
-                                                   1024   1024
-                                            |  ->  |  ->  |
-
-                                
-
-"""
 # input image
 class DoubleConv(nn.Module):
     def __init__(self, in_channels, out_channels) -> None:
